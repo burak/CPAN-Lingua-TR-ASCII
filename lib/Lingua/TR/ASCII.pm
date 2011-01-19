@@ -73,7 +73,7 @@ sub _matches {
         while ( $end <= $_len ) {
             my $s = substr $str, $start, $end - $start;
             my $r = $dlist->{ $s };
-            $rank = $r if $r && abs($r) < abs($rank);
+            $rank = $r if $r && abs $r < abs $rank;
             $end++;
         }
         $start++;
@@ -85,7 +85,7 @@ sub _matches {
 sub _get_context {
     my($self, $point, $size) = @_;
     $size ||= CONTEXT_SIZE;
-    my $s = ' ' x ( 1 + ( 2 * $size ) );
+    my $s = q{ } x ( 1 + ( 2 * $size ) );
     substr $s, $size, 1, 'X';
 
     my $i       = 1 + $size;
@@ -152,6 +152,11 @@ Lingua::TR::ASCII - (De)asciify Turkish texts.
 
 =head1 SYNOPSIS
 
+    use Lingua::TR::ASCII;
+    print ascii_to_turkish(
+        'Acimasizca acelya gorunen bir sacmaliktansa acilip sacilmak...'
+    );
+
 =head1 DESCRIPTION
 
 If you try to write Turkish with a non-Turkish keyboard (assuming you
@@ -197,7 +202,7 @@ L<http://turkce-karakter.appspot.com>
 
 =item Python
 
-L<http://code.google.com/p/turkish-deasciifier>
+L<https://github.com/emres/turkish-deasciifier>
 
 =item Ruby
 
