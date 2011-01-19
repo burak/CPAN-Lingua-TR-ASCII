@@ -1,0 +1,6 @@
+Revision history for Perl extension Lingua::TR::ASCII
+
+Time zone is GMT+2.
+
+0.10 Wed Jan 19 03:45:27 2011
+    => First release. Nearly direct port from Python+Ruby code.

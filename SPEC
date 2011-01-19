@@ -1,0 +1,10 @@
+use 5.006;
+{
+    module_name => 'Lingua::TR::ASCII',
+    requires    => {},
+    meta_merge  => {
+        resources => {
+            repository => 'http://bitbucket.org/burak/cpan-lingua-tr-ascii/',
+        },
+    },
+}
