@@ -5,7 +5,7 @@ use utf8;
 use base qw( Exporter );
 use Lingua::TR::ASCII::Data;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 our @EXPORT  = qw( ascii_to_turkish turkish_to_ascii );
 
 sub ascii_to_turkish {
@@ -28,10 +28,9 @@ sub _new {
     return $self;
 }
 
+# Convert a string with ASCII-only letters into one with Turkish letters.
 sub _deasciify {
     my($self) = @_;
-    # Convert a string with ASCII-only letters into one with
-    # Turkish letters.
     my $s     = \$self->{turkish};
     my @chars = split m{}xms, ${$s};
 
@@ -44,9 +43,9 @@ sub _deasciify {
     return ${$s};
 }
 
+# Determine if char at cursor needs correction.
 sub _needs_correction {
     my($self, $ch, $point) = @_;
-    # Determine if char at cursor needs correction.
     my $tr = $ASCIIFY->{ $ch } || $ch;
     my $pl = $PATTERN->{ lc $tr };
     my $m  = $pl ? $self->_matches( $pl, $point || 0 ) : 0;
@@ -55,25 +54,21 @@ sub _needs_correction {
                       : ( $ch eq $tr ?   $m : ! $m );
 }
 
+# Check if the pattern is in the pattern table.
 sub _matches {
     my($self, $dlist, $point) = @_;
-    # Check if the pattern is in the pattern table.
-    my $rank  = 2 * keys %{ $dlist };
-    my $str   = $self->_get_context( $point || 0 );
-    my $start = 0;
-    my $end   = 0;
+    my $str  = $self->_get_context( $point || 0 );
+    my $rank = 2 * keys %{ $dlist };
+    my $len  = length $str;
+    my($start, $end);
 
-    my $_len = length $str;
-
-    while ( $start <= CONTEXT_SIZE ) {
-        $end = 1 + CONTEXT_SIZE;
-        while ( $end <= $_len ) {
+    while ( $start++ <= CONTEXT_SIZE ) {
+        $end = CONTEXT_SIZE;
+        while ( ++$end <= $len ) {
             my $s = substr $str, $start, $end - $start;
-            my $r = $dlist->{ $s };
-            $rank = $r if $r && abs $r < abs $rank;
-            $end++;
+            my $r = $dlist->{ $s } || next;
+            $rank = $r if abs $r < abs $rank;
         }
-        $start++;
     }
 
     return $rank > 0;
@@ -82,51 +77,44 @@ sub _matches {
 sub _get_context {
     my($self, $point, $size) = @_;
     $size ||= CONTEXT_SIZE;
-    my $s = q{ } x ( 1 + ( 2 * $size ) );
-    substr $s, $size, 1, 'X';
+    my($s, $i, $space, $index);
 
-    my $turkish = \$self->{turkish};
-    my $i       = 1 + $size;
-    my $index   = 1 + $point;
-    my $len     = $self->{length};
-    my $space;
-
-    while ( $i < length $s && ! $space && $index < $len ) {
-        my $current_char = substr $self->{turkish}, $index++, 1;
-        my $x = $DOWNCASE_ASCIIFY->{ $current_char };
-        if ( ! $x ) {
-            if ( ! $space ) {
-                $space = 1;
+    my $morph = sub {
+        my($next, $lookup) = @_;
+        $space = 0;
+        while ( $next->() ) {
+            my $char = substr $self->{turkish}, $index, 1;
+            my $x    = $lookup->{ $char };
+            if ( $x ) {
+                substr $s, abs $i, 1, $x;
+                $space = 0;
                 $i++;
+                next;
             }
-        }
-        else {
-            substr $s, $i, 1, $x;
-            $space = 0;
+            next if $space;
+            $space = 1;
             $i++;
         }
-    }
+    };
+
+    $s     = q{ } x ( 1 + ( 2 * $size ) );
+    $i     = 1 + $size;
+    $index = $point;
+    substr $s, $size, 1, 'X';
+
+    $morph->(
+        sub { $i < length $s && ! $space && ++$index < $self->{length} },
+        $DOWNCASE_ASCIIFY
+    );
 
     $s     = substr $s, 0, $i;
-    $index = $point - 1;
-    $i     = $size  - 1;
-    $space = 0;
+    $i     = 0 - --$size;
+    $index = $point;
 
-    while ( $i >= 0 && $index >= 0 ) {
-        my $current_char = substr $self->{turkish}, $index--, 1;
-        my $x = $UPCASE_ACCENTS->{ $current_char };
-        if ( ! $x ) {
-            if ( ! $space ) {
-                $space = 1;
-                $i--;
-            }
-        }
-        else {
-            substr $s, $i, 1, $x;
-            $space = 0;
-            $i--;
-        }
-    }
+    $morph->(
+        sub { $i <= 0 && --$index >= 0 },
+        $UPCASE_ACCENTS
+    );
 
     return $s;
 }
