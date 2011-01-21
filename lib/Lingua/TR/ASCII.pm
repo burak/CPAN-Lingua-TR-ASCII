@@ -10,6 +10,7 @@ our @EXPORT  = qw( ascii_to_turkish turkish_to_ascii );
 
 sub ascii_to_turkish {
     my($str) = @_;
+    return $str if ! $str;
     return __PACKAGE__->_new( $str )->_deasciify;
 }
 

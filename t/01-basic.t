@@ -4,6 +4,7 @@ use utf8;
 use Test::More qw( no_plan );
 
 use Lingua::TR::ASCII;
+use Lingua::TR::ASCII::Data;
 
 my @ascii = (
     q{Acimasizca acelya gorunen bir sacmaliktansa acilip sacilmak...},
@@ -29,6 +30,30 @@ my @turkish = (
 
 for my $i ( 0..$#ascii ) {
     is( ascii_to_turkish( $ascii[$i] ), $turkish[$i], 'EQ ' . ($i + 1) );
+}
+
+TEST_WARN: {
+    my @warnings;
+    local $SIG{__WARN__} = sub {
+        my $msg = shift || return;
+        chomp $msg;
+        diag "WARNING: $msg\n";
+        push @warnings, $msg;
+        return;
+    };
+    is( ascii_to_turkish( undef ), undef, 'undef is undef' );
+    is( ascii_to_turkish( q{}   ), q{},   'Empty string is empty string' );
+    is( ascii_to_turkish( 0     ), 0,     'Zero is zero' );
+    ok( ! @warnings, 'No warnings' );
+}
+
+for my $i ( 1..CONTEXT_SIZE ) {
+    my $test1 = q(a) x $i;
+    my $test2 = qq(\n) x $i;
+    my $test3 = qq(a\n) x $i;
+    is( $test1, $test1, "SIZE EQ($i) $test1" );
+    is( $test2, $test2, "SIZE EQ($i) \\n" );
+    is( $test3, $test3, "SIZE EQ(${i}a) \\n" );
 }
 
 1;
