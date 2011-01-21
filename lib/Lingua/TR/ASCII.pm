@@ -82,6 +82,7 @@ sub _get_context {
 
     my $morph = sub {
         my($next, $lookup) = @_;
+        $index = $point;
         $space = 0;
         while ( $next->() ) {
             my $char = substr $self->{turkish}, $index, 1;
@@ -98,9 +99,8 @@ sub _get_context {
         }
     };
 
-    $s     = q{ } x ( 1 + ( 2 * $size ) );
-    $i     = 1 + $size;
-    $index = $point;
+    $s = q{ } x ( 1 + ( 2 * $size ) );
+    $i = 1 + $size;
     substr $s, $size, 1, 'X';
 
     $morph->(
@@ -108,9 +108,8 @@ sub _get_context {
         $DOWNCASE_ASCIIFY
     );
 
-    $s     = substr $s, 0, $i;
-    $i     = 0 - --$size;
-    $index = $point;
+    $s = substr $s, 0, $i;
+    $i = 0 - --$size;
 
     $morph->(
         sub { $i <= 0 && --$index >= 0 },
