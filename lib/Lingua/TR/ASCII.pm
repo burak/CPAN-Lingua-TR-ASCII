@@ -141,7 +141,7 @@ Lingua::TR::ASCII - (De)asciify Turkish texts.
 If you try to write Turkish with a non-Turkish keyboard (assuming you
 can't change the layout or can't touch-type) this'll result with the
 ascii-fication of the Turkish characters and this actually results
-with bogus text since the text you wrote is not literally Turkish
+with bogus text since the text you wrote is not literally Turkish anymore
 (although the Turkish speaking people and search engines will most
 likely understand it). And in some cases, ascii-fication of some sentences
 might result with funny words. This module tries to mitigate this problem
@@ -175,6 +175,10 @@ L<http://www.denizyuret.com/2006/11/emacs-turkish-mode.html>.
 
 =over 4
 
+=item Java
+
+L<http://code.google.com/p/turkish-deasciifier>
+
 =item JavaScript
 
 L<http://turkce-karakter.appspot.com>
@@ -186,10 +190,6 @@ L<https://github.com/emres/turkish-deasciifier>
 =item Ruby
 
 L<https://github.com/berkerpeksag/ruby-turkish-deasciifier>.
-
-=item Java
-
-L<http://code.google.com/p/turkish-deasciifier>
 
 =back
 
