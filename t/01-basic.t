@@ -15,6 +15,7 @@ my @ascii = (
     q{1969 yilinda 15 yasindayken 1000 lira transfer parasi alarak Camialti Spor Kulubu'nde amator futbolcu oldu. Daha sonra IETT Spor Kulubu'nun amator futbolcusu oldu. 1976 yilinda, IETT sampiyon oldugunda, Erdogan da bu takimda oynamaktaydi. Erokspor Kulubunde de futbola devam etti ve 16 yillik futbol yasamini 12 Eylul 1980 Askeri Darbesi sonrasinda birakti ve daha fazla siyasi faaliyet...},
     q{Opusmegi cagristiran catirtilar.},
     q{Hadi bir masal uyduralim, icinde mutlu, doygun, telassiz durdugumuz.},
+    q{Yukarida belirtilmis olan faturalandirma tarihinden itibaren odeme suresi 20 gundur. Odeme yapilirken gonderen aciklamasi olarak, tarafiniza verilen telefon numarasi ve ilgili fatura numarasinin mutlaka belirtilmesi gerekmektedir.},
 );
 
 my @turkish = (
@@ -26,6 +27,7 @@ my @turkish = (
     q{1969 yılında 15 yaşındayken 1000 lira transfer parası alarak Camialtı Spor Kulübü'nde amatör futbolcu oldu. Daha sonra İETT Spor Kulübü'nün amatör futbolcusu oldu. 1976 yılında, İETT şampiyon olduğunda, Erdoğan da bu takımda oynamaktaydı. Erokspor Kulübünde de futbola devam etti ve 16 yıllık futbol yaşamını 12 Eylül 1980 Askeri Darbesi sonrasında bıraktı ve daha fazla siyasi faaliyet...},
     q{Öpüşmeği çağrıştıran çatırtılar.},
     q{Hadi bir masal uyduralım, içinde mutlu, doygun, telaşsız durduğumuz.},
+    q{Yukarıda belirtilmiş olan faturalandırma tarihinden itibaren ödeme süresi 20 gündür. Ödeme yapılırken gönderen açıklaması olarak, tarafınıza verilen telefon numarası ve ilgili fatura numarasının mutlaka belirtilmesi gerekmektedir.},
 );
 
 for my $i ( 0..$#ascii ) {
