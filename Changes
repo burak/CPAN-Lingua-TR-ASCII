@@ -2,6 +2,9 @@ Revision history for Perl extension Lingua::TR::ASCII
 
 Time zone is GMT+2.
 
+0.12 Sun Jul  8 01:50:04 2012
+    => Bump version.
+
 0.11 Fri Jan 21 02:17:27 2011
     => Clean up.
 
