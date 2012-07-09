@@ -15,7 +15,10 @@ sub ascii_to_turkish {
 }
 
 sub turkish_to_ascii {
-    die "Unimplemented\n";
+    my($str, $encoding) = @_;
+    require Text::Unidecode;
+    use utf8;
+    return Text::Unidecode::unidecode( $str );
 }
 
 sub _new {
@@ -155,17 +158,19 @@ This module is based on the previous Python and Ruby implementations.
 
 =head1 FUNCTIONS
 
-=head2 ascii_to_turkish
+=head2 ascii_to_turkish STRING
 
 Converts (corrects) the supplied string into Turkish.
 
-=head2 turkish_to_ascii
+=head2 turkish_to_ascii STRING
 
-Not yet implemented.
+Converts the supplied C<STRING> into an ascii equivalent.
+This function is a wrapper around L<Text::Unidecode>.
 
 =head1 SEE ALSO
 
 L<Lingua::DE::ASCII>,
+L<Text::Unidecode>,
 L<http://ileriseviye.org/blog/?tag=turkish-deasciifier>,
 L<http://www.denizyuret.com/2006/11/emacs-turkish-mode.html>.
 
