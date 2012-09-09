@@ -1,6 +1,7 @@
 Revision history for Perl extension Lingua::TR::ASCII
 
-Time zone is GMT+2.
+0.13 Sun Sep  9 04:28:28 2012
+    => Pod and distro fixes.
 
 0.12 Mon Jul  9 18:32:46 2012
     => Text::Unidecode is now required.

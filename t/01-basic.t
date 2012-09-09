@@ -81,14 +81,14 @@ sub _chars {
         }
         if ( @buf ) {
             require Data::Dumper;
-            diag sprintf "[%s] Mismatching chars: %s", $id, Data::Dumper::Dumper( \@buf );
+            diag sprintf '[%s] Mismatching chars: %s', $id, Data::Dumper::Dumper( \@buf );
         }
     }
     else {
-        diag sprintf "[%s] Char count mismatch %d != %d",
+        diag sprintf '[%s] Char count mismatch %d != %d',
                         $id,
-                        scalar( @got ),
-                        scalar( @expected );
+                        scalar @got,
+                        scalar @expected;
     }
     return $got, $expected;
 }

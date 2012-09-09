@@ -3406,6 +3406,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
 Lingua::TR::ASCII::Data - Data sets for Lingua::TR::ASCII

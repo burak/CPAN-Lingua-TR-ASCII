@@ -5,7 +5,7 @@ use utf8;
 use base qw( Exporter );
 use Lingua::TR::ASCII::Data;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 our @EXPORT  = qw( ascii_to_turkish turkish_to_ascii );
 
 sub ascii_to_turkish {
@@ -128,6 +128,8 @@ __END__
 
 =pod
 
+=encoding utf8
+
 =head1 NAME
 
 Lingua::TR::ASCII - (De)asciify Turkish texts.
@@ -142,13 +144,13 @@ Lingua::TR::ASCII - (De)asciify Turkish texts.
 =head1 DESCRIPTION
 
 If you try to write Turkish with a non-Turkish keyboard (assuming you
-can't change the layout or can't touch-type) this'll result with the
-ascii-fication of the Turkish characters and this actually results
+can't change the layout or can't touch-type) this will result with the
+C<ascii-fication> of the Turkish characters and this actually results
 with bogus text since the text you wrote is not literally Turkish anymore
 (although the Turkish speaking people and search engines will most
-likely understand it). And in some cases, ascii-fication of some sentences
+likely understand it). And in some cases, C<ascii-fication> of some sentences
 might result with funny words. This module tries to mitigate this problem
-with a wrapper around a pre-compiled decison list.
+with a wrapper around a C<pre-compiled> decision list.
 
 The original creator of the decision list states that it was "created based
 on 1 million words of Turkish news text using the GPA algorithm". See
@@ -164,7 +166,7 @@ Converts (corrects) the supplied string into Turkish.
 
 =head2 turkish_to_ascii STRING
 
-Converts the supplied C<STRING> into an ascii equivalent.
+Converts the supplied C<STRING> into an C<ascii> equivalent.
 This function is a wrapper around L<Text::Unidecode>.
 
 =head1 SEE ALSO
