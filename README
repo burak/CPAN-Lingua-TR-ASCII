@@ -5,7 +5,7 @@ Lingua::TR::ASCII
 
 Read the module's POD for documentation and examples.
 
-NSTALLATION
+INSTALLATION
 
 Just use the cpan shell to install this module. From a command prompt, type:
 
