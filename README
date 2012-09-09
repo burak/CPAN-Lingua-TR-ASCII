@@ -19,6 +19,9 @@ to enter the cpan shell. And then enter:
 
    install Lingua::TR::ASCII
 
+If you don't have the cpan shell available, then you have a broken perl
+installation.
+
 COPYRIGHT & LICENSE
 
 See the LICENSE file bundled with this distribution.
