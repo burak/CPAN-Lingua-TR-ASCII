@@ -1,5 +1,8 @@
 Revision history for Perl extension Lingua::TR::ASCII
 
+0.14 Tue Jul  5 01:20:58 2016
+    => Bump version.
+
 0.13 Sun Sep  9 04:28:28 2012
     => Pod and distro fixes.
 
