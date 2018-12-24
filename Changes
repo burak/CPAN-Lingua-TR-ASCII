@@ -1,6 +1,8 @@
 Revision history for Perl extension Lingua::TR::ASCII
 
 {{$NEXT}}
+
+0.16 2018-12-25 BURAK
     - Migrate to dzil.
 
 0.14 Tue Jul  5 01:20:58 2016
