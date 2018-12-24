@@ -1,11 +1,11 @@
 package Lingua::TR::ASCII;
+
 use strict;
 use warnings;
 use utf8;
 use base qw( Exporter );
 use Lingua::TR::ASCII::Data;
 
-our $VERSION = '0.14';
 our @EXPORT  = qw( ascii_to_turkish turkish_to_ascii );
 
 sub ascii_to_turkish {

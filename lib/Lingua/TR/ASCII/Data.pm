@@ -1,11 +1,10 @@
 package Lingua::TR::ASCII::Data;
+
 use strict;
 use warnings;
 use base qw(Exporter);
 use utf8;
 use constant CONTEXT_SIZE => 10;
-
-our $VERSION = '0.10';
 
 our @EXPORT = qw(
     $PATTERN

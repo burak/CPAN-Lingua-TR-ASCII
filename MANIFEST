@@ -1,8 +1,0 @@
-lib/Lingua/TR/ASCII.pm
-lib/Lingua/TR/ASCII/Data.pm
-t/01-basic.t
-Build.PL
-Changes
-MANIFEST
-README
-SPEC
