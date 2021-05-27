@@ -3,7 +3,7 @@ package Lingua::TR::ASCII;
 use strict;
 use warnings;
 use utf8;
-use base qw( Exporter );
+use parent qw( Exporter );
 use Lingua::TR::ASCII::Data;
 
 our @EXPORT  = qw( ascii_to_turkish turkish_to_ascii );

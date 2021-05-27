@@ -2,7 +2,7 @@ package Lingua::TR::ASCII::Data;
 
 use strict;
 use warnings;
-use base qw(Exporter);
+use parent qw(Exporter);
 use utf8;
 use constant CONTEXT_SIZE => 10;
 
