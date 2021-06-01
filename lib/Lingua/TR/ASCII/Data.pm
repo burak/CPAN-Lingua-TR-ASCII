@@ -95,10 +95,7 @@ foreach my $ch ( 'A'..'Z' ) {
     $UPCASE_ACCENTS->{   $lc } = $lc;
 }
 
-# Data hash imported from
-# https://github.com/berkerpeksag/ruby-turkish-deasciifier/
-#     blob/master/lib/deasciifier/table.rb
-#
+# initial import from the now (seemingly) dead project "ruby-turkish-deasciifier"
 
 our $PATTERN = {'c' => {
     'bu aXa' => -1, 'Cki Xi' => -2, 'na Xog' => 3,

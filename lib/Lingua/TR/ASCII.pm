@@ -173,7 +173,7 @@ This function is a wrapper around L<Text::Unidecode>.
 
 L<Lingua::DE::ASCII>,
 L<Text::Unidecode>,
-L<http://ileriseviye.org/blog/?tag=turkish-deasciifier>,
+L<http://web.archive.org/web/20110824043812/http://ileriseviye.org/blog/tag/turkish-deasciifier/>,
 L<http://www.denizyuret.com/2006/11/emacs-turkish-mode.html>.
 
 =head2 OTHER IMPLEMENTATIONS
@@ -184,7 +184,7 @@ L<http://www.denizyuret.com/2006/11/emacs-turkish-mode.html>.
 
 =item Java
 
-L<http://code.google.com/p/turkish-deasciifier>
+L<https://github.com/ahmetb/turkish-deasciifier-java>
 
 =item JavaScript
 
@@ -193,20 +193,6 @@ L<http://turkce-karakter.appspot.com>
 =item Python
 
 L<https://github.com/emres/turkish-deasciifier>
-
-=item Ruby
-
-L<https://github.com/berkerpeksag/ruby-turkish-deasciifier>.
-
-=back
-
-=head3 Tools
-
-=over 4
-
-=item Firefox Add-on
-
-L<https://addons.mozilla.org/en-US/firefox/addon/turkish-deasciifier>.
 
 =back
 
